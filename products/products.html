@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Catalog</title>
+  <link rel="stylesheet" href="products.css" />
+</head>
+<script>
+  const user = JSON.parse(localStorage.getItem("currentUser"));
+  if (!user) {
+    window.location.href = "auth.html"; 
+  }
+</script>
+
+<body>
+  <header>
+    <h1>Our Products</h1>
+    <div class="controls">
+      <input type="text" id="searchInput" placeholder="Search products..." />
+      <select id="categoryFilter">
+        <option value="all">All Categories</option>
+        
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <div class="products-container" id="productsContainer">
+     
+    </div>
+  </main>
+
+  <script src="products.js"></script>
+</body>
+</html>
