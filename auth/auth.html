@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Auth Slide Page</title>
   <link rel="stylesheet" href="auth.css" />
+  <!-- <link rel="stylesheet" href="../global/all.min.css"> Font Awesome
+  <link rel="stylesheet" href="../global/bootstrap.min.css"> bootstrap CSS --> 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
@@ -13,6 +15,7 @@
     <div class="form-container sign-in-container">
       <form onsubmit="event.preventDefault(); login();">
         <h2>Welcome Back</h2>
+        <!-- <i class="fa-solid fa-circle-user"></i>  Font Awesome Example -->
         <input type="email" id="loginEmail" placeholder="Email" required />
         <input type="password" id="loginPassword" placeholder="Password" required />
         <button type="submit">Sign In</button>
@@ -62,6 +65,7 @@
   </div>
 
   <script src="auth.js"></script>
+  <!-- <script src="../global/bootstrap.bundle.min.js"></script> bootstrap js -->
   <script>
     const authContainer = document.getElementById("authContainer");
     document.getElementById("signUpBtn").onclick = () => authContainer.classList.add("right-panel-active");
