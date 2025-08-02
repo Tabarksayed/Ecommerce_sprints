@@ -1,7 +1,19 @@
 const apiURL = 'https://fakestoreapi.com/products';
 const container = document.getElementById('productsContainer');
+const productShowcase = document.getElementById('productShowcase');
+const filterProducts = document.getElementById('filter');
 const searchInput = document.getElementById('searchInput');
 const categoryFilter = document.getElementById('categoryFilter');
+
+
+const productNameElement = document.getElementById('productName');
+const productCategoryElement = document.getElementById('productCategory');
+const productPriceElement = document.getElementById('productPrice');
+const productRatingElement = document.getElementById('productRating');
+const productDescriptionElement = document.getElementById('productDescription');
+const productImageElement = document.getElementById('productImage');
+
+
 let allProducts = [];
 
 async function fetchProducts() {
@@ -23,6 +35,7 @@ function renderProducts(products) {
       <p class="price">$${product.price}</p>
       <p>${product.category}</p>
     `;
+    card.addEventListener('click',() => {getProduct(product.id)})
     container.appendChild(card);
   });
 }
@@ -54,3 +67,33 @@ categoryFilter.addEventListener('change', () => {
 });
 
 fetchProducts();
+
+
+
+async function getProduct(id = 0) {
+  const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+  const data = await res.json();
+  switchPages();
+  loadProduct(data);
+}
+
+function switchPages(toProduct = true) {
+  if (toProduct) {
+    productShowcase.classList.remove('d-none');
+    container.classList.add('d-none');
+    filterProducts.classList.add('d-none');
+  }
+  else {
+    filterProducts.classList.remove('d-none');
+    container.classList.remove('d-none');
+    productShowcase.classList.add('d-none');
+  }
+}
+
+function loadProduct(data) {
+  productNameElement.textContent = data.title;
+  productPriceElement.textContent = '$' + data.price;
+  productCategoryElement.textContent = data.category;
+  productDescriptionElement.textContent = data.description;
+  productImageElement.setAttribute('src',data.image);
+}
