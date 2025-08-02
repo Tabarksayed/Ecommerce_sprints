@@ -4,68 +4,76 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Auth Slide Page</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="auth.css" />
-  <!-- <link rel="stylesheet" href="../global/all.min.css"> Font Awesome
-  <link rel="stylesheet" href="../global/bootstrap.min.css"> bootstrap CSS --> 
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-<body>
-  <div class="auth-container" id="authContainer">
-    
-    <div class="form-container sign-in-container">
-      <form onsubmit="event.preventDefault(); login();">
-        <h2>Welcome Back</h2>
-        <!-- <i class="fa-solid fa-circle-user"></i>  Font Awesome Example -->
-        <input type="email" id="loginEmail" placeholder="Email" required />
-        <input type="password" id="loginPassword" placeholder="Password" required />
-        <button type="submit">Sign In</button>
+<body class="d-flex justify-content-center align-items-center min-vh-100 bg-dark">
+  <div class="auth-container glass-effect shadow-lg rounded-5 overflow-hidden" id="authContainer">
+    <!-- Sign In Form -->
+    <div class="form-container sign-in-container p-5">
+      <form onsubmit="event.preventDefault(); login();" class="w-100">
+        <h2 class="text-light mb-4 text-center">Welcome Back</h2>
+        <div class="mb-3">
+          <input type="email" id="loginEmail" class="form-control" placeholder="Email" required />
+        </div>
+        <div class="mb-3">
+          <input type="password" id="loginPassword" class="form-control" placeholder="Password" required />
+        </div>
+        <button type="submit" class="btn btn-teal w-100 rounded-pill">Sign In</button>
       </form>
     </div>
 
-  
-    <div class="form-container sign-up-container">
-      <form onsubmit="event.preventDefault(); signup();">
-        <h2>Create Account</h2>
-        <input type="text" id="signupUsername" placeholder="Username" required />
-        <div id="usernameHelper" class="helper-text">Only letters, numbers, and underscores are allowed.</div>
-
-        <input type="email" id="signupEmail" placeholder="Email" required />
-        <input type="password" id="signupPassword" placeholder="Password" required />
-        <div id="passwordHelper" class="helper-text">Password must be at least 8 characters long.</div>
-
-        <input type="password" id="signupConfirm" placeholder="Confirm Password" required />
-<div class="admin-checkbox">
-  <label for="isAdmin">
-    <input type="checkbox" id="isAdmin" />
-    <span>Register as Admin</span>
-  </label>
-</div>
-
-
-
-        <button type="submit">Sign Up</button>
+    <!-- Sign Up Form -->
+    <div class="form-container sign-up-container p-5">
+      <form onsubmit="event.preventDefault(); signup();" class="w-100">
+        <h2 class="text-light mb-4 text-center">Create Account</h2>
+        <div class="mb-3">
+          <input type="text" id="signupUsername" class="form-control" placeholder="Username" required />
+          <div id="usernameHelper" class="helper-text text-danger bg-danger-subtle p-2 rounded mt-1">Only letters, numbers, and underscores are allowed.</div>
+        </div>
+        <div class="mb-3">
+          <input type="email" id="signupEmail" class="form-control" placeholder="Email" required />
+        </div>
+        <div class="mb-3">
+          <input type="password" id="signupPassword" class="form-control" placeholder="Password" required />
+          <div id="passwordHelper" class="helper-text text-danger bg-danger-subtle p-2 rounded mt-1">Password must be at least 8 characters long.</div>
+        </div>
+        <div class="mb-3">
+          <input type="password" id="signupConfirm" class="form-control" placeholder="Confirm Password" required />
+        </div>
+        <div class="form-check mb-3">
+          <input type="checkbox" id="isAdmin" class="form-check-input" />
+          <label for="isAdmin" class="form-check-label text-light">Register as Admin</label>
+        </div>
+        <button type="submit" class="btn btn-teal w-100 rounded-pill">Sign Up</button>
       </form>
     </div>
 
-    <!-- Overlay Box -->
+    <!-- Overlay -->
     <div class="overlay-container">
       <div class="overlay">
-        <div class="overlay-panel overlay-left">
-          <h2>Already have an account?</h2>
-          <p>To keep connected with us, please login with your personal info.</p>
-          <button class="ghost" id="signInBtn">Sign In</button>
+        <div class="overlay-panel overlay-left p-5 text-center">
+          <h2 class="text-light mb-3">Already have an account?</h2>
+          <p class="text-light mb-4">To keep connected with us, please login with your personal info.</p>
+          <button class="btn btn-outline-light rounded-pill" id="signInBtn">Sign In</button>
         </div>
-        <div class="overlay-panel overlay-right">
-          <h2>Hello, Friend!</h2>
-          <p>Enter your personal details and start your journey with us.</p>
-          <button class="ghost" id="signUpBtn">Sign Up</button>
+        <div class="overlay-panel overlay-right p-5 text-center">
+          <h2 class="text-light mb-3">Hello, Friend!</h2>
+          <p class="text-light mb-4">Enter your personal details and start your journey with us.</p>
+          <button class="btn btn-outline-light rounded-pill" id="signUpBtn">Sign Up</button>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="auth.js"></script>
-  <!-- <script src="../global/bootstrap.bundle.min.js"></script> bootstrap js -->
   <script>
     const authContainer = document.getElementById("authContainer");
     document.getElementById("signUpBtn").onclick = () => authContainer.classList.add("right-panel-active");
