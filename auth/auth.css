@@ -10,7 +10,7 @@ body {
 .auth-container {
   background: rgba(31, 41, 55, 0.95);
   width: 960px;
-  min-height: 500px;
+  min-height: 510px;
   position: relative;
   display: flex;
   border-radius: 40px; 
@@ -107,6 +107,7 @@ body {
   transform: translateX(-3%);
   left: 0;
 }
+
 
 .overlay-right {
   right: 0;
