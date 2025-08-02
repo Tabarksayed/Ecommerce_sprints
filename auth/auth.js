@@ -19,6 +19,7 @@ function signup() {
   if (invalidChars.test(username)) {
     Swal.fire("Error", "Username must not contain special characters like @ or #.", "error");
     return;
+    
   }
 
   if (password.length < 8) {
