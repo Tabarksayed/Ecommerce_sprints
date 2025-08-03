@@ -1,6 +1,10 @@
 
 function addToCart(productId) {//for products page
     const id = parseInt(productId);
+    Toastify({
+        text: "Item Added to the Cart",
+        duration: 3000
+    }).showToast();
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     const existingItem = cart.find(item => item.productId === id);
 
@@ -18,7 +22,7 @@ function updateCartCount() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     const cartCountElement = document.getElementById('cartCount');
-    
+
     if (cartCountElement) {
         cartCountElement.textContent = totalItems;
         cartCountElement.style.display = totalItems > 0 ? 'block' : 'none';
@@ -45,7 +49,7 @@ async function displayCartItems() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartContainer = document.getElementById('cart-container');
     const cartTotalElement = document.getElementById('cart-total');
-    
+
     cartContainer.innerHTML = '';
     let total = 0;
 
@@ -61,7 +65,7 @@ async function displayCartItems() {
         if (product) {
             const itemTotal = product.price * item.quantity;
             total += itemTotal;
-            
+
             cartContainer.innerHTML += `
                 <div class="card mb-3">
                     <div class="card-body d-flex align-items-center">
@@ -111,12 +115,12 @@ function handleCheckout() {
     localStorage.removeItem('cart');
 
     Swal.fire('Thank You!', 'Your order has been placed successfully.', 'success').then(() => {
-        window.location.href = '../products/products.html';
+        window.location.href = '../products.html';
     });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    updateCartCount(); 
+    updateCartCount();
 
     if (window.location.pathname.endsWith('cart.html')) {
         displayCartItems();

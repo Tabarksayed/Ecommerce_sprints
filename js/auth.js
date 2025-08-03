@@ -67,7 +67,7 @@ function login() {
     if (user.isAdmin) {
       window.location.href = "../admin/admin.html"; 
     } else {
-     window.location.href = "../products/products.html";
+     window.location.href = "../products.html";
 
     }
   });

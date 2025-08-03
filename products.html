@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/products.css" />
   <link rel="stylesheet" href="css/all.min.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 <script>
   const user = JSON.parse(localStorage.getItem("currentUser"));
@@ -28,26 +29,29 @@
         </div>
         <a href="../cart.html" class="text-white text-decoration-none">
           <i class="fa-solid fa-cart-shopping fs-1 position-relative pointer-click">
-            <p class="position-absolute fs-6 start-50 translate-middle-x text-black" style="top: 15%; font-weight: bold;" id="cartCount">0</p>
+            <p class="position-absolute fs-6 start-50 translate-middle-x text-black"
+              style="top: 15%; font-weight: bold;" id="cartCount">0</p>
           </i>
         </a>
       </div>
     </div>
     <div>
-      <h2 class="h2">Our Products</h2>
-      <div class="d-flex justify-content-center mt-4 gap-4 w-50 mx-auto" id="filter">
-        <input type="text" id="searchInput" class="form-control" placeholder="Search products..." />
-        <select id="categoryFilter" class="form-select">
-          <option value="all">All Categories</option>
-
-        </select>
+      <div id="filter">
+        <h2 class="h2">Our Products</h2>
+        <div class="d-flex justify-content-center mt-4 gap-4 w-50 mx-auto">
+          <input type="text" id="searchInput" class="form-control" placeholder="Search products..." />
+          <select id="categoryFilter" class="form-select">
+            <option value="all">All Categories</option>
+          </select>
+        </div>
       </div>
     </div>
   </header>
 
   <main>
     <div class="products-container" id="productsContainer"></div>
-    <div class="w-75 row d-flex justify-content-center align-items-center m-4 mx-auto gap-5 d-none" id="productShowcase">
+    <div class="w-75 row d-flex justify-content-center align-items-center m-4 mx-auto gap-5 d-none"
+      id="productShowcase">
       <div class="col-12 col-lg-4 d-flex flex-column justify-content-center align-items-center gap-4">
         <img src="https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg" alt="Product Placeholder" id="productImage"
           class="w-100 object-fit-contain">
@@ -64,21 +68,23 @@
           <h4 class="h6 text-secondary-emphasis">(343 Reviews)</h4>
         </div>
         <h4 class="h6 text-secondary-emphasis" id="productCategory">Category</h4>
-        <p id="productDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, officiis facilis in illo dolor doloribus
+        <p id="productDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, officiis facilis in
+          illo dolor doloribus
           dicta alias laboriosam ex! Error maxime inventore explicabo molestiae! Aut dolor cupiditate modi similique
           eaque!</p>
         <button class="btn btn-success d-flex gap-2 justify-content-center align-items-center" pid="1">
           <i class="fa-solid fa-cart-plus"></i>
           <span>Add to Cart</span>
-        </button> 
-        <button class="btn btn-primary d-flex gap-2 justify-content-center align-items-center" onclick="switchPages(false)">
+        </button>
+        <button class="btn btn-primary d-flex gap-2 justify-content-center align-items-center"
+          onclick="switchPages(false)">
           <i class="fa-solid fa-shop"></i>
           <span>Return to Shop</span>
-        </button> 
-        <!-- TODO ADD Event to cart-->
+        </button>
       </div>
     </div>
   </main>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <script src="js/cart.js"></script>
   <script src="js/products.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
