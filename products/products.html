@@ -1,36 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Product Catalog</title>
   <link rel="stylesheet" href="products.css" />
+  <link rel="stylesheet" href="../global/all.min.css">
+  <link rel="stylesheet" href="../global/bootstrap.min.css">
 </head>
 <script>
   const user = JSON.parse(localStorage.getItem("currentUser"));
   if (!user) {
-    window.location.href = "auth.html"; 
+    window.location.href = "../auth/auth.html";
   }
 </script>
 
 <body>
-  <header>
-    <h1>Our Products</h1>
-    <div class="controls">
-      <input type="text" id="searchInput" placeholder="Search products..." />
-      <select id="categoryFilter">
-        <option value="all">All Categories</option>
-        
-      </select>
+  <header class="p-4 text-white text-center d-flex flex-column">
+    <div class="w-100 px-4 d-flex flex-row justify-content-between align-items-center">
+      <h1 class="h1 fw-bolder">Shopify</h1>
+      <div class="d-flex justify-content-center align-items-center gap-4">
+        <div class="d-flex justify-content-center align-items-center pointer-click">
+          <i class="fa-solid fa-circle-user h1"></i>
+          <h5 class="h5" id="username">USERNAME</h5>
+          <!-- TODO Make it a button for maybe history? -->
+        </div>
+        <a href="../cart/cart.html" class="text-white text-decoration-none">
+          <i class="fa-solid fa-cart-shopping fs-1 position-relative pointer-click">
+            <p class="position-absolute fs-6 start-50 translate-middle-x text-black" style="top: 15%; font-weight: bold;" id="cartCount">0</p>
+          </i>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h2 class="h2">Our Products</h2>
+      <div class="d-flex justify-content-center mt-4 gap-4 w-50 mx-auto" id="filter">
+        <input type="text" id="searchInput" class="form-control" placeholder="Search products..." />
+        <select id="categoryFilter" class="form-select">
+          <option value="all">All Categories</option>
+
+        </select>
+      </div>
     </div>
   </header>
 
   <main>
-    <div class="products-container" id="productsContainer">
-     
+    <div class="products-container" id="productsContainer"></div>
+    <div class="w-75 d-flex justify-content-center align-items-center m-4 mx-auto gap-5 d-none" id="productShowcase">
+      <div class="w-25 d-flex flex-column justify-content-center align-items-center gap-4">
+        <img src="https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg" alt="Product Placeholder" id="productImage"
+          class="w-100 object-fit-contain">
+      </div>
+      <div class="w-50 d-flex flex-column justify-content-start align-items-start text-start gap-4">
+        <h2 class="h2 fw-bold" id="productName">PRODUCTNAME</h2>
+        <h3 class="h2 text-success" id="productPrice">99.99$</h3>
+        <div class="d-flex justify-content-center align-items-center" id="productRating">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <h4 class="h6 text-secondary-emphasis">(343 Reviews)</h4>
+        </div>
+        <h4 class="h6 text-secondary-emphasis" id="productCategory">Category</h4>
+        <p id="productDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, officiis facilis in illo dolor doloribus
+          dicta alias laboriosam ex! Error maxime inventore explicabo molestiae! Aut dolor cupiditate modi similique
+          eaque!</p>
+        <button class="btn btn-success d-flex gap-2 justify-content-center align-items-center" pid="1">
+          <i class="fa-solid fa-cart-plus"></i>
+          <span>Add to Cart</span>
+        </button> 
+        <button class="btn btn-primary d-flex gap-2 justify-content-center align-items-center" onclick="switchPages(false)">
+          <i class="fa-solid fa-shop"></i>
+          <span>Return to Shop</span>
+        </button> 
+        <!-- TODO ADD Event to cart-->
+      </div>
     </div>
   </main>
-
+  <script src="../cart/cart.js"></script>
   <script src="products.js"></script>
+  <script src="../global/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

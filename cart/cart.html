@@ -1,0 +1,38 @@
+<!-- cart/cart.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Shopping Cart</title>
+    <link rel="stylesheet" href="../global/bootstrap.min.css">
+    <link rel="stylesheet" href="../global/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Shopping Cart</h1>
+            <a href="../products/products.html" class="btn btn-primary">
+                <i class="fa-solid fa-shop me-2"></i>Continue Shopping
+            </a>
+        </div>
+        
+        <div id="cart-container" class="mb-4">
+            <!-- Cart items will be dynamically inserted here by cart.js -->
+        </div>
+
+        <div class="card p-4 shadow-sm">
+            <h3 class="mb-3">Order Summary</h3>
+            <div class="d-flex justify-content-between">
+                <h4>Total:</h4>
+                <h4 id="cart-total" class="text-success fw-bold">$0.00</h4>
+            </div>
+            <button id="checkout-btn" class="btn btn-success btn-lg mt-3">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script src="cart.js"></script> <!-- Link to your cart logic -->
+</body>
+</html>
