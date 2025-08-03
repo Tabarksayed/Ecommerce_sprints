@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   if (!currentUser || !currentUser.isAdmin) {
     Swal.fire("Access Denied", "Admins only", "error").then(() => {
-      window.location.href = "../auth/auth.html";
+      window.location.href = "../auth.html";
     });
     return;
   }
