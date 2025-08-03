@@ -58,15 +58,15 @@ async function displayCartItems() {
         cartTotalElement.textContent = '$0.00';
         return;
     }
+    else {
+        let cartoona = '';
+        cart.forEach(item => {
+            const product = allProducts.find(p => p.id === item.productId);
+            if (product) {
+                const itemTotal = product.price * item.quantity;
+                total += itemTotal;
 
-    cart.forEach(item => {
-        const product = allProducts.find(p => p.id === item.productId);
-
-        if (product) {
-            const itemTotal = product.price * item.quantity;
-            total += itemTotal;
-
-            cartContainer.innerHTML += `
+                cartoona += `
                 <div class="card mb-3">
                     <div class="card-body d-flex align-items-center">
                         <img src="${product.image}" alt="${product.title}" style="width: 100px; height: 100px; object-fit: contain;" class="me-3">
@@ -78,9 +78,10 @@ async function displayCartItems() {
                     </div>
                 </div>
             `;
-        }
-    });
-
+            }
+        });
+        cartContainer.innerHTML = cartoona;
+    }
     cartTotalElement.textContent = `$${total.toFixed(2)}`;
 }
 
