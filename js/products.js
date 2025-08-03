@@ -13,6 +13,8 @@ const productRatingElement = document.getElementById('productRating');
 const productDescriptionElement = document.getElementById('productDescription');
 const productImageElement = document.getElementById('productImage');
 
+const usernameElement = document.getElementById('username');
+
 
 let allProducts = [];
 
@@ -102,3 +104,11 @@ function loadProduct(data) {
       addToCart(data.id); // Call the function from cart.js
   });
 }
+
+function loadName(){
+  const user = JSON.parse(localStorage.getItem("currentUser"));
+  const username = user.username;
+  usernameElement.textContent = username;
+}
+
+loadName();
