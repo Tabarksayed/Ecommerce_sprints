@@ -65,7 +65,7 @@ function login() {
 
   Swal.fire("Login Successful", welcomeMsg, "success").then(() => {
     if (user.isAdmin) {
-      window.location.href = "../admin/admin.html"; 
+      window.location.href = "../admin.html"; 
     } else {
      window.location.href = "../products.html";
 
