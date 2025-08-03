@@ -8,7 +8,7 @@ body {
 
 header {
   padding: 20px;
-  background-color: #14b8a6;
+  background: linear-gradient(to right, #726c6b,rgb(85, 46, 46), rgb(76, 33, 33));
   color: white;
   text-align: center;
 }
@@ -65,7 +65,7 @@ input, select {
 }
 
 .product-card .price {
-  color: #14b8a6;
+  color: rgb(132, 87, 87);
   font-weight: bold;
   font-size: 1.2em;
 }
