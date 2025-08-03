@@ -96,4 +96,9 @@ function loadProduct(data) {
   productCategoryElement.textContent = data.category;
   productDescriptionElement.textContent = data.description;
   productImageElement.setAttribute('src',data.image);
+  const addToCartBtn = document.querySelector('#productShowcase .btn-success');
+
+  addToCartBtn.addEventListener('click', () => {
+      addToCart(data.id); // Call the function from cart.js
+  });
 }

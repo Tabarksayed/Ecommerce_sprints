@@ -26,9 +26,11 @@
           <h5 class="h5" id="username">USERNAME</h5>
           <!-- TODO Make it a button for maybe history? -->
         </div>
-        <i class="fa-solid fa-cart-shopping fs-1 position-relative pointer-click" id="cart" onclick="">
-          <p class="position-absolute fs-6 start-0 end-0 text-black" style="top: 15%;" id="cartCount">1</p>
-        </i>
+        <a href="../cart/cart.html" class="text-white text-decoration-none">
+          <i class="fa-solid fa-cart-shopping fs-1 position-relative pointer-click">
+            <p class="position-absolute fs-6 start-50 translate-middle-x text-black" style="top: 15%; font-weight: bold;" id="cartCount">0</p>
+          </i>
+        </a>
       </div>
     </div>
     <div>
@@ -77,7 +79,7 @@
       </div>
     </div>
   </main>
-
+  <script src="../cart/cart.js"></script>
   <script src="products.js"></script>
   <script src="../global/bootstrap.bundle.min.js"></script>
 </body>
