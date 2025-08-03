@@ -89,7 +89,7 @@ function handleCheckout() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (!currentUser) {
         Swal.fire('Login Required', 'You must be logged in to checkout.', 'warning').then(() => {
-            window.location.href = '../auth/auth.html';
+            window.location.href = '../auth.html';
         });
         return;
     }
